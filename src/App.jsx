@@ -1,51 +1,24 @@
-import {
-    IconBabyBottle,
-    IconBrandFacebook,
-    IconBrandTwitter,
-} from '@tabler/icons-react';
-import clsx from 'clsx';
-export default function App() {
+import { IconBrandFacebook, IconBrandTwitter } from '@tabler/icons-react';
+import Button from './components/Button';
+import Card from './components/Card';
+
+function App() {
     return (
-        <div
-            className={
-                'flex flex-col items-center justify-center h-screen bg-slate-900'
-            }
-        >
-            <div className={'flex gap-x-2'}>
-                <Button
-                    className={'bg-pink-500 hover:bg-pink-700'}
-                    type={'reset'}
-                    onClick={() => {
-                        console.log(123);
-                    }}
-                >
-                    <IconBrandFacebook />
-                    Login
-                </Button>
-                <Button type={'button'}>
-                    <IconBrandTwitter />
-                    Register
-                </Button>
+        <div className={'flex flex-col items-center justify-center h-screen bg-slate-900'}>
+            <div className={'flex gap-x-2 max-w-md w-full'}>
+                <Card>
+                    <Card.Title>Card 1</Card.Title>
+                    <Card.Body>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores placeat nostrum nobis excepturi eligendi doloribus neque
+                        unde odit incidunt quibusdam corrupti quos, culpa repudiandae sit ut a animi dicta fuga?
+                    </Card.Body>
+                    <Card.Footer>
+                        <Button>Register</Button>
+                    </Card.Footer>
+                </Card>
             </div>
         </div>
     );
 }
 
-function Button(props) {
-    const {
-        children,
-        text,
-        className = 'bg-blue-500 hover:bg-blue-700',
-    } = props;
-    return (
-        <button
-            {...props}
-            className={clsx(
-                className,
-                '[&>svg]:w-5 [&>svg]:h-5 [&>svg]:stroke-1 flex items-center gap-x-2 text-white font-bold py-2 px-4 rounded mb-4',
-            )}
-        >
-            {children || text}
-        </button>
-    );
-}
+export default App;
